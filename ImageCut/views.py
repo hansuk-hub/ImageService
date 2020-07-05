@@ -7,11 +7,13 @@ from PIL import Image
 import math
 from django.conf import settings
 import datetime
+from django.views.decorators.clickjacking import xframe_options_exempt
 
 from .models import  *
 
 
 # Create your views here.
+@xframe_options_exempt
 def test(request):
     if request.method == "GET" :
         return render(request, './test.html')
