@@ -19,5 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('ImageCut/', include('ImageCut.urls'))   ##추가 해야함
+    path('ImageCut/', include('ImageCut.urls')),
+    path('makelist/', include('makelist.urls')),
 ]

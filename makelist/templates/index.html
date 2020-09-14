@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>자동 써머리 생성하기</title>
+</head>
+<body>{% load static %}
+<center>
+    <br>
+    <br>
+
+
+
+    <form action="./" method="post" enctype="multipart/form-data">{% csrf_token %}
+    <input type="hidden" name="fileNum" value="{{ fileNum }}">
+
+
+        {% for i in "x"|rjust:fileNum  %}
+            {{ forloop.counter }} <br>
+            상품 이름 : <input type="text" name="productName{{ forloop.counter }}"><br>
+            <input id="fileInput{{ forloop.counter }}" name="fileInput{{ forloop.counter }}" type="file" class="form-control">
+            <br>
+            <br>
+            <br>
+        {% endfor %}
+
+        <a href="./?fileNum={{ addNum }}"><input type="button" value="썸네일 파일갯수 늘리기" ></a>
+        <br><br>
+        <input type="submit" class="btn btn-success btn-lg" value="파일제출">
+
+    </form>
+
+</center>
+</body>
+</html>
